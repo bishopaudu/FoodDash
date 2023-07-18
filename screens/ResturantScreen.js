@@ -1,8 +1,7 @@
-import { View, Text, ScrollView,Image, TouchableOpacity} from 'react-native'
+import { View, Text, ScrollView,Image, TouchableOpacity,StatusBar} from 'react-native'
 import React from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import * as Icon from "react-native-feather";
-import { themeColors } from '../theme';
 import DishRow from '../components/DishRow';
 import CartIcon from '../components/CartIcon';
 
@@ -13,17 +12,18 @@ export default function ResturantScreen() {
   return (
     <View>
       <CartIcon/>
+      <StatusBar style='light' />
       <ScrollView>
         <View className='relative'>
-          <Image className='w-full h-72' source={item.image}/>
+          <Image className='w-full h-72' source={item.image} resize='cover'/>
           <TouchableOpacity onPress={() => navigation.goBack()} className='absolute top-14 left-4 bg-gray-50 p-2 rounded-full shadow'>
-            <Icon.ArrowLeft strokeWidth={3} stroke={themeColors.bgColor(1)}/>
+            <Icon.ArrowLeft strokeWidth={3} stroke={'#f59042'}/>
           </TouchableOpacity>
         </View>
         <View style={{borderTopLeftRadius:40,borderTopRightRadius:40}}
-        className='bg-white-mt-12 t-6'>
+        className='bg-white mt-12 pt-6'>
           <View className='px-5'>
-            <Text className='text=3xl font-bold'>{item.name}</Text>
+            <Text className='text-3xl font-bold'>{item.name}</Text>
             <View className='flex-row space-x-2 my-1'>
             <View className='flex-row items-center space-x-1'>
                   <Image source={require('../assets/images/fullStar.png')} className='h-4 w-4'/>
