@@ -9,6 +9,8 @@ import Categories from '../components/Categories';
 import { featured } from '../constants';
 
 export default function HomeScreen() {
+  const data = featured.title[0]
+  console.log(data)
   return (
     <SafeAreaView className='bg-white'>
      <StatusBar barStyle='dark-content'/>
@@ -21,8 +23,8 @@ export default function HomeScreen() {
                     <Text className="text-gray-600">New York, NYC</Text>
                 </View>
             </View>
-            <View style={{backgroundColor: themeColors.bgColor(1)}} className="p-3 rounded-full">
-                <Icon.Sliders height={20} width={20} strokeWidth="2.5" stroke="red" />
+            <View style={{backgroundColor: '#f59042'}} className="p-3 rounded-full">
+                <Icon.User height={20} width={20} strokeWidth="2.5" stroke="red" />
             </View>
         </View>
 

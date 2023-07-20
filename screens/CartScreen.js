@@ -4,12 +4,14 @@ import { featured } from '../constants'
 import { themeColors } from '../theme'
 import * as Icon from "react-native-feather";
 import { useNavigation } from '@react-navigation/native';
+import {useSelector} from 'react-redux'
+import { selectRestaurant } from '../slices/restaurantSlice';
 
 export default function CartScreen () {
     const navigation = useNavigation()
-    const resturants = featured.restaurants[0]
+    const resturants =useSelector(selectRestaurant)
     return (
-      <View className='bg-white flex-1'>
+      <View className='bg-white flex-1 mt-4'>
           <View className='relative py-4 shadow-sm'>
               <TouchableOpacity
               style={{backgroundColor:'#f59042'}}
@@ -40,7 +42,7 @@ export default function CartScreen () {
                   resturants.dishes.map((dish,index) => {
                       return (
                           <View 
-                          className='flex-row item-center space-x-3 py-2 bg-white rounded-3xl mx-2 mb-3 shadow-md'>
+                          className='flex-row item-center space-x-3 py-2 px-4 bg-white rounded-3xl mx-2 mb-3 shadow-md'>
                               <Text className='font-bold' style={{color:'blue'}}>2 x</Text>
                               <Image className ='h-14 w-14 rounded-full' source={dish.image}/>
                               <Text className='flex-1 font-bold text-gray-700'>{dish.name}</Text>
@@ -55,7 +57,7 @@ export default function CartScreen () {
                   })
               }
           </ScrollView>
-          <View className='p-6 px-8 rounded-t-3xl space-y-3' style={{backgroundColor:themeColors.bgColor(0.2)}}>
+          <View className='p-6 px-8 rounded-t-3xl space-y-3' style={{backgroundColor:'#8f6e4f'}}>
             <View className='flex-row justify-between'>
                 <Text className='text-grey-700'>Subtotal</Text>
                 <Text className='text-grey-700'>$20</Text>
@@ -74,7 +76,6 @@ export default function CartScreen () {
             style={{backgroundColor:'#f59042'}} 
             className='p-3 rounded-full'>
                 <Text className='text-white text-center font-bold text-lg'>Place order</Text>
-
             </TouchableOpacity>
         </View>
     )

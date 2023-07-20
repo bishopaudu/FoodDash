@@ -5,12 +5,13 @@ import { featured } from '../constants'
 import ResturantCard from './ResturantCard'
 
 export default function FeaturedRow({title,description,restaurants}) {
+    console.log(title)
   return (
     <View>
     <View className='flex-row justify-between items-center px-4'>
-        <View>
-            <Text className='font-bold text-lg'>{title}</Text>
-            <Text className='text-grey-500 text-xs'>{description}</Text>
+        <View> 
+        <Text className='font-bold text-lg'>{title}</Text>
+        <Text className='text-grey-500 text-xs'>{description}</Text>
         </View>
         <TouchableOpacity>
             <Text style={{color:themeColors.text}} className='font-semibold'>see All</Text>
@@ -36,6 +37,6 @@ export default function FeaturedRow({title,description,restaurants}) {
 
     </ScrollView>
     </View>
-  )
+    )
 }
 

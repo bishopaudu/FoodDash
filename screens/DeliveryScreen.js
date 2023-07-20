@@ -5,10 +5,11 @@ import { useNavigation } from '@react-navigation/native'
 import MapView, {Marker} from 'react-native-maps'
 import { themeColors } from '../theme'
 import * as Icon from "react-native-feather";
-
+import useSelector from 'react-native'
+import { selectRestaurant } from '../slices/restaurantSlice'
 
 export default function DeliveryScreen() {
-    const Resturant = featured.restaurants[0]
+    const Resturant = useSelector(selectRestaurant)
     const navigation = useNavigation()
   return (
     <View className='flex-1'>
@@ -53,7 +54,7 @@ export default function DeliveryScreen() {
                         <Icon.Phone fill={'#f59042'} stroke={'#f59042'}/>
                     </TouchableOpacity>
                     <TouchableOpacity className='bg-white p-2 rounded-full' onPress={() => navigation.navigate('Home')}>
-                        <Icon.X fill={'#f59042'} strokeWidth={5}/>
+                        <Icon.X fill={'red'} strokeWidth={5}/>
                     </TouchableOpacity>
                 </View>
             </View>
